@@ -1,0 +1,1 @@
+python3 ./search/main.py $1 $2
