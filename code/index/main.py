@@ -3,7 +3,7 @@ import os
 import xml.sax
 from parse_sax import *
 from config import *
-
+import time
 
 def dec_msg(a):
     if colo==True:
@@ -52,7 +52,7 @@ def byexit(a):
 
 
 def init():
-    os.system("clear")
+    # os.system("clear")
     def_msg("\n"+"="*50)
     dec_msg("Indexer started")
     n=len(sys.argv)
@@ -64,11 +64,13 @@ def init():
         inp_msg("> Dump path set to "+dump_path)
         inp_msg("> Invert path set to "+invert_path)
         inp_msg("> Stat file set to "+stat_file)
+        aa=time.time()
         parser = xml.sax.make_parser()
         parser.setFeature(xml.sax.handler.feature_namespaces, 0)
         Handler = Parser_sax()
         parser.setContentHandler(Handler)
         parser.parse(dump_path)
+        print(time.time()-aa)
         byexit(1)
 
 
