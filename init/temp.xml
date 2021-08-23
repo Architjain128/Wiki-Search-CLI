@@ -1,68 +1,5 @@
 <mediawiki xmlns="http://www.mediawiki.org/xml/export-0.10/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mediawiki.org/xml/export-0.10/ http://www.mediawiki.org/xml/export-0.10.xsd" version="0.10" xml:lang="en">
   <page>
-    <title>McCabe Lake</title>
-    <ns>0</ns>
-    <id>23570393</id>
-    <redirect title="List of lakes of Nova Scotia" />
-    <revision>
-      <id>958843060</id>
-      <parentid>956397680</parentid>
-      <timestamp>2020-05-26T00:14:09Z</timestamp>
-      <contributor>
-        <username>Reywas92</username>
-        <id>1233313</id>
-      </contributor>
-      <minor />
-      <comment>Redundant, mere name on map fails [[WP:NGEO]]</comment>
-      <model>wikitext</model>
-      <format>text/x-wiki</format>
-      <text bytes="41" xml:space="preserve">#redirect[[List of lakes of Nova Scotia]]</text>
-      <sha1>ftjrqwc7jc1ny6rl8vrpvl9jl709ob0</sha1>
-    </revision>
-  </page>
-  <page>
-    <title>Miller Lake (Nova Scotia)</title>
-    <ns>0</ns>
-    <id>23570394</id>
-    <redirect title="List of lakes of Nova Scotia" />
-    <revision>
-      <id>958843104</id>
-      <parentid>956397811</parentid>
-      <timestamp>2020-05-26T00:14:23Z</timestamp>
-      <contributor>
-        <username>Reywas92</username>
-        <id>1233313</id>
-      </contributor>
-      <minor />
-      <comment>Redundant, mere name on map fails [[WP:NGEO]]</comment>
-      <model>wikitext</model>
-      <format>text/x-wiki</format>
-      <text bytes="41" xml:space="preserve">#redirect[[List of lakes of Nova Scotia]]</text>
-      <sha1>ftjrqwc7jc1ny6rl8vrpvl9jl709ob0</sha1>
-    </revision>
-  </page>
-  <page>
-    <title>Miller Lake Mooseland</title>
-    <ns>0</ns>
-    <id>23570395</id>
-    <redirect title="List of lakes of Nova Scotia" />
-    <revision>
-      <id>958843119</id>
-      <parentid>956397819</parentid>
-      <timestamp>2020-05-26T00:14:28Z</timestamp>
-      <contributor>
-        <username>Reywas92</username>
-        <id>1233313</id>
-      </contributor>
-      <minor />
-      <comment>Redundant, mere name on map fails [[WP:NGEO]]</comment>
-      <model>wikitext</model>
-      <format>text/x-wiki</format>
-      <text bytes="41" xml:space="preserve">#redirect[[List of lakes of Nova Scotia]]</text>
-      <sha1>ftjrqwc7jc1ny6rl8vrpvl9jl709ob0</sha1>
-    </revision>
-  </page>
-  <page>
     <title>Vickers Vagabond</title>
     <ns>0</ns>
     <id>23570396</id>
@@ -204,6 +141,8 @@ Early flight trials, with H.J.Pain as pilot revealed a need to stiffen the engin
 {{refend}}
 
 &lt;!-- ==External links== --&gt;
+{{Vickers aircraft}}
+{{Vickers aircraft}}
 {{Vickers aircraft}}
 
 [[Category:1920s British sport aircraft]]

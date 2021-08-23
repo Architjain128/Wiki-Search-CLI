@@ -16,15 +16,17 @@ from nltk.stem.porter import PorterStemmer
 
 # pageCount=int(52622)
 
-def all_magic_happens_here(a,tag,fl=2):
+STOP_WORDS=["reflist","refbegin","refend","-->","|","[[Category:","{{Infobox"]
+
+def all_magic_happens_here(a,tag,fl=0):
     list_of_all_lowecase_words = re_tok_lower(a,tag)
-    set_non_stop_words=rem_stop_words(list_of_all_lowecase_words)
     if fl==0:
-        lemmy_words=lemm(set_non_stop_words,tag)
+        words=lemm(list_of_all_lowecase_words,tag)
     if fl ==1:
-        stemmy_words=porter_stemm(set_non_stop_words,tag)
+        words=porter_stemm(list_of_all_lowecase_words,tag)
     if fl ==2:
-        stemmy_words=snow_stemm(set_non_stop_words,tag)
+        words=snow_stemm(list_of_all_lowecase_words,tag)
+    set_non_stop_words=rem_stop_words(words)
     return list_of_all_lowecase_words
 
 
@@ -34,6 +36,7 @@ def re_tok_lower(a,tag):
 
 def rem_stop_words(a):
     stop_words = set(stopwords.words('english'))
+    print(stop_words)
     set1=set(a)
     set2=set(stop_words)
     set3=set({'',""," "})

@@ -1,6 +1,6 @@
 import xml.sax
 from magic import *
-
+from parse_cat import *
 
 till_page = 0;
 
@@ -10,9 +10,9 @@ def imp_ck():
 class Parser_sax(xml.sax.ContentHandler):
     def __init__ (self):
         self.currentdata = ""
-        self.page = ""
-        self.title = ""
-        self.text = ""
+        self.data=""
+        self.title=""
+        self.text=""
     
     def startElement(self, tag, attrs):
         self.currentdata = tag
@@ -20,21 +20,30 @@ class Parser_sax(xml.sax.ContentHandler):
     def endElement(self, tag):
         global till_page
         if tag == "page":
+            print(">"*21)
+            parse_text_tag(self.text)
+            print(">"*21)
             till_page+=1
             if till_page%100==0:
                 aa=till_page*50//52622
                 bb=50-aa;
-                print( "done "+str(aa)+" % ["+"="*(aa)+">"+" "*bb+"]",end="\r")
+                print( "done "+str(2*aa)+" % ["+"="*(aa)+">"+" "*bb+"]",end="\r")
+        
+        
         if self.currentdata == "title":
-            list_of_words=all_magic_happens_here(self.title,"title")
             self.title=""
+        
         if self.currentdata == "text":
-            list_of_words=all_magic_happens_here(self.text,"text")
-            self.text=""
+            pass
+            # print("-"*100)
+            # print(self.text)
+            # print("-"*100)
+            # self.text=""
+        
         self.currentdata = ""
     
     def characters(self, content):
         if self.currentdata == "title":
             self.title += content
         if self.currentdata == "text":
-            self.text+=content
+            self.text += content
