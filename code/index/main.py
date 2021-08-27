@@ -64,13 +64,15 @@ def init():
         inp_msg("> Dump path set to "+dump_path)
         inp_msg("> Invert path set to "+invert_path)
         inp_msg("> Stat file set to "+stat_file)
+        
         aa=time.time()
         parser = xml.sax.make_parser()
         parser.setFeature(xml.sax.handler.feature_namespaces, 0)
         Handler = Parser_sax()
         parser.setContentHandler(Handler)
-        parser.parse(dump_path)
+        parser.parse(open(dump_path,'r'))
         print(time.time()-aa)
+        
         byexit(1)
 
 

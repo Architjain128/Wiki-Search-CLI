@@ -1,6 +1,9 @@
 
 from colorama import init, Fore, Style, Back
 colo=True
+
+my_stop_words=["reflist","refbegin","refend","-->","|","Category","Infobox","n","",'']
+
 # color escape sequences
 colors = {
     'Blue': '\x1b[0;34m',

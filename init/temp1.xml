@@ -1,0 +1,140 @@
+<mediawiki xmlns="http://www.mediawiki.org/xml/export-0.10/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mediawiki.org/xml/export-0.10/ http://www.mediawiki.org/xml/export-0.10.xsd" version="0.10" xml:lang="en">
+  <page>
+    <title>Trusted Computer System Evaluation Criteria</title>
+    <ns>0</ns>
+    <id>23571638</id>
+    <revision>
+      <id>1025852404</id>
+      <parentid>1025852188</parentid>
+      <timestamp>2021-05-29T23:38:54Z</timestamp>
+      <contributor>
+        <ip>76.175.221.176</ip>
+      </contributor>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text bytes="10587" xml:space="preserve">{{multiple issues|
+{{refimprove|date=July 2018}}
+{{expert|1=Computing|date=July 2018}}
+}}
+[[Image:Orange-book-small.PNG|thumb|The Orange Book]]
+'''Trusted Computer System Evaluation Criteria''' ('''TCSEC''') is a [[United States]] [[Government of the United States|Government]] [[United States Department of Defense|Department of Defense]] (DoD) standard that sets basic requirements for assessing the effectiveness of [[computer security]] controls built into a [[computer system]]. The TCSEC was used to evaluate, classify, and select computer systems being considered for the processing, storage, and retrieval of sensitive or [[classified information]].&lt;ref&gt;Lipner, Steve (2015). &quot;The Birth and Death of the Orange Book&quot;. ''IEEE Annals of the History of Computing'' 37 no. 2 (2015): 19-31. Retrieved from https://dx.doi.org/10.1109/MAHC.2015.27.&lt;/ref&gt;
+
+The TCSEC, frequently referred to as the '''Orange Book''', is the centerpiece of the DoD ''[[Rainbow Series]]'' publications. Initially issued in 1983 by the [[National Computer Security Center]] (NCSC), an arm of the [[National Security Agency]], and then updated in 1985, TCSEC was eventually replaced by the [[Common Criteria]] international standard, originally published in 2005.{{fact|date=July 2018}}
+
+== Fundamental objectives and requirements ==
+On 24 October 2002, '''The Orange Book''' (aka DoDD 5200.28-STD) was canceled by DoDD 8500.1, which was later reissued as DoDI 8500.02, on 14 March 2014.
+&lt;ref&gt;{{cite web|url=http://www.dtic.mil/whs/directives/corres/pdf/850001_2014.pdf|title=Department of Defense INSTRUCTION - Cybersecurity|website=www.dtic.mil|archive-url=https://web.archive.org/web/20140429193839/http://www.dtic.mil/whs/directives/corres/pdf/850001_2014.pdf|archive-date=2014-04-29}}&lt;/ref&gt;
+
+===Policy===
+The security policy must be explicit, well-defined, and enforced by the computer system. Three basic security policies are specified:&lt;ref&gt;DOD 5200.28-STD &quot;Department of Defense Trusted Computer System Evaluation Criteria&quot;, 1985, page 3&lt;/ref&gt;
+* '''Mandatory Security Policy''' – Enforces [[access control]] rules based directly on an individual's clearance, authorization for the information and the confidentiality level of the information being sought. Other indirect factors are physical and environmental. This policy must also accurately reflect the laws, general policies and other relevant guidance from which the rules are derived.
+* '''Marking''' – Systems designed to enforce a mandatory security policy must store and preserve the integrity of access control labels and retain the labels if the object is exported.
+* '''Discretionary Security Policy''' – Enforces a consistent set of rules for controlling and limiting access based on identified individuals who have been determined to have a need-to-know for the information.
+
+===Accountability===
+Individual accountability regardless of policy must be enforced. A secure means must exist to ensure the access of an authorized and competent agent that can then evaluate the accountability information within a reasonable amount of time and without undue difficulty. The accountability objective includes three requirements:&lt;ref&gt;DOD 5200.28-STD &quot;Department of Defense Trusted Computer System Evaluation Criteria&quot;, 1985, page 4&lt;/ref&gt;
+* '''Identification''' – The process used to recognize an individual user.
+* '''Authentication''' – The verification of an individual user's authorization to specific categories of information.
+* '''Auditing''' – [[audit trail|Audit]] information must be selectively kept and protected so that actions affecting security can be traced to the authenticated individual.
+
+===Assurance===
+The computer system must contain hardware/software mechanisms that can be independently evaluated to provide sufficient assurance that the system enforces the above requirements. By extension, assurance must include a guarantee that the trusted portion of the system works only as intended. To accomplish these objectives, two types of assurance are needed with their respective elements:&lt;ref&gt;DOD 5200.28-STD &quot;Department of Defense Trusted Computer System Evaluation Criteria&quot;, 1985, page 4&lt;/ref&gt;
+* '''Assurance Mechanisms'''
+* '''Operational Assurance:''' System Architecture, System Integrity, Covert Channel Analysis, Trusted Facility Management, and Trusted Recovery
+* '''Life-cycle Assurance :''' Security Testing, Design Specification and Verification, Configuration Management, and Trusted System Distribution
+* '''Continuous Protection Assurance''' – The trusted mechanisms that enforce these basic requirements must be continuously protected against tampering or unauthorized changes.
+
+===Documentation===
+Within each class, an additional set of documentation addresses the development, deployment, and management of the system rather than its capabilities. This documentation includes:{{fact|date=July 2018}}
+* Security Features User's Guide, Trusted Facility Manual, Test Documentation, and Design Documentation
+
+== Divisions and classes ==
+The TCSEC defines four divisions: D, C, B, and A, where division A has the highest security. Each division represents a significant difference in the trust an individual or organization can place on the evaluated system. Additionally divisions C, B and A are broken into a series of hierarchical subdivisions called classes: C1, C2, B1, B2, B3, and A1.&lt;ref&gt;DOD 5200.28-STD &quot;Department of Defense Trusted Computer System Evaluation Criteria&quot;, 1985&lt;/ref&gt;
+
+Each division and class expands or modifies as indicated the requirements of the immediately prior division or class.&lt;ref&gt;DOD 5200.28-STD &quot;Department of Defense Trusted Computer System Evaluation Criteria&quot;, 1985, page 5&lt;/ref&gt;
+
+===D – Minimal protection===
+* Reserved for those systems that have been evaluated but that fail to meet the requirements for a higher division.&lt;ref&gt;DOD 5200.28-STD &quot;Department of Defense Trusted Computer System Evaluation Criteria&quot;, 1985, page 9&lt;/ref&gt;
+
+===C – Discretionary protection===
+* C1 – Discretionary Security Protection&lt;ref&gt;DOD 5200.28-STD &quot;Department of Defense Trusted Computer System Evaluation Criteria&quot;, 1985, page 12&lt;/ref&gt;
+** Identification and authentication
+** Separation of users and data
+** [[Discretionary access control|Discretionary Access Control (DAC)]] capable of enforcing access limitations on an individual basis
+** Required System Documentation and user manuals
+* C2 – Controlled Access Protection
+** More finely grained DAC
+** Individual accountability through login procedures
+** Audit trails
+** Object reuse
+** Resource isolation
+** An example of such as system is [[HP-UX]]
+
+===B – Mandatory protection===
+* B1 – Labeled Security Protection&lt;ref&gt;DOD 5200.28-STD &quot;Department of Defense Trusted Computer System Evaluation Criteria&quot;, 1985, page 20&lt;/ref&gt;
+** Informal statement of the security policy model
+** Data sensitivity labels
+** [[Mandatory access control|Mandatory Access Control (MAC)]] over selected subjects and objects
+** Label exportation capabilities
+** Some discovered flaws must be removed or otherwise mitigated
+** Design specifications and verification
+* B2 – Structured Protection
+** [[Computer security model|Security policy model]] clearly defined and formally documented
+** DAC and MAC enforcement extended to all subjects and objects
+** [[covert channel|Covert storage channels]] are analyzed for occurrence and bandwidth
+** Carefully structured into protection-critical and non-protection-critical elements
+** Design and implementation enable more comprehensive testing and review
+** Authentication mechanisms are strengthened
+** Trusted facility management is provided with administrator and operator segregation
+** Strict configuration management controls are imposed
+** Operator and Administrator roles are separated.
+** An example of such a system was [[Multics]]
+* B3 – Security Domains
+** Satisfies [[reference monitor]] requirements
+** Structured to exclude code not essential to security policy enforcement
+** Significant system engineering directed toward minimizing complexity
+** Security administrator role defined
+** Audit security-relevant events
+** Automated imminent [[intrusion detection]], notification, and response
+** [[Trusted path]] to the TCB for the user authentication function
+** Trusted system recovery procedures
+** [[covert channel|Covert timing channels]] are analyzed for occurrence and bandwidth
+** An example of such a system is the XTS-300, a precursor to the [[XTS-400]]
+
+===A – Verified protection===
+* A1 – Verified Design&lt;ref&gt;DOD 5200.28-STD &quot;Department of Defense Trusted Computer System Evaluation Criteria&quot;, 1985, page 44&lt;/ref&gt;
+** Functionally identical to B3
+** Formal design and verification techniques including a formal top-level specification
+** Formal management and distribution procedures
+** Examples of A1-class systems are Honeywell's [[Computer security#Secure operating systems|SCOMP]], Aesec's GEMSOS, and Boeing's SNS Server. Two that were unevaluated were the production LOCK platform and the cancelled DEC VAX Security Kernel. 
+* Beyond A1
+** System Architecture demonstrates that the requirements of self-protection and completeness for reference monitors have been implemented in the [[Trusted Computing Base]] (TCB).
+** Security Testing automatically generates test-case from the formal top-level specification or formal lower-level specifications.
+** Formal Specification and Verification is where the TCB is verified down to the source code level, using formal verification methods where feasible.
+** Trusted Design Environment is where the TCB is designed in a trusted facility with only trusted (cleared) personnel.
+
+== Matching classes to environmental requirements ==
+The publication entitled &quot;Army Regulation 380-19&quot; is an example of a guide to determining which system class should be used in a given situation.&lt;ref&gt;Army Regulation 380-19. Retrieved from https://fas.org/irp/doddir/army/r380_19.pdf.&lt;/ref&gt;
+
+== See also ==
+* [[AR 380-19]] superseded by [[AR 25-2]]
+* [[Canadian Trusted Computer Product Evaluation Criteria]]
+* [[Common Criteria]]
+* [[ITSEC]]
+* [[Rainbow Series]]
+* [[Trusted Platform Module]]
+
+== References ==
+{{reflist|1}}
+
+==External links==
+* [http://csrc.nist.gov/publications/history/dod85.pdf National Security Institute - 5200.28-STD ''Trusted Computer System Evaluation Criteria'']
+* [https://fas.org/irp/nsa/rainbow/std001.htm FAS IRP DOD Trusted Computer System Evaluation Criteria DOD 5200.28 ]
+
+[[Category:National Security Agency]]
+[[Category:Computer security standards]]
+[[Category:Trusted computing]]</text>
+      <sha1>rpnj7kcckx7aq186chx0bmd66wg6hhi</sha1>
+    </revision>
+  </page>
+</mediawiki>
