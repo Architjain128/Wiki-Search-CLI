@@ -10,13 +10,10 @@ class Parser_sax(xml.sax.ContentHandler):
         self.data=""
         self.title=""
         self.text=""
-        self.id=""
-        self.idfl=False
+        self.id="NaN"
     
     def startElement(self, tag, attrs):
         self.currentdata = tag
-        if tag=="id" and self.idfl==False:
-            self.id =""
         if tag=="title":
             self.title =""
         if tag=="text":
@@ -25,25 +22,20 @@ class Parser_sax(xml.sax.ContentHandler):
     def endElement(self, tag):
         global till_page
         if tag == "page":
-            j=parse_baby_parse(self.id,self.title, self.text)
-            
+            needed_to_be_indexed=parse_baby_parse(self.id,self.title, self.text)
+            # make inverted index
             till_page+=1
-            if(till_page==28310):
-                print(self.id)
-                
             if till_page%500==0:
-                print(str(till_page)+"\r")
-            
-            self.idfl=False
-            #     aa=till_page*50//52622
-            #     bb=50-aa;
-            #     print( "done "+str(2*aa)+" % ["+"="*(aa)+">"+" "*bb+"]",end="\r")
-            
+                aa=till_page*50//52622
+                bb=50-aa;
+                print( str(till_page)+" done or "+str(2*aa)+" % ["+"="*(aa)+">"+" "*bb+"]",end="\r")
+
+        if tag=="mediawiki":
+            print( str(till_page)+" done or 100 % [" + str("="*50) +">]",end="\n")
+
     def characters(self, content):
         if self.currentdata == "title":
             self.title += content
         if self.currentdata == "text":
             self.text += content
-        if self.currentdata == "id" and self.idfl==False:
-            self.id = content
-            self.idfl=True
+        

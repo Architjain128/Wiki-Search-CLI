@@ -3,13 +3,11 @@ import re
 import nltk
 import time
 from nltk.corpus import stopwords
-from nltk.stem import WordNetLemmatizer
-from nltk.stem.snowball import SnowballStemmer
-
+import Stemmer
 from config import *
-# pageCount=int(52622)
 
-snow_stemmer = SnowballStemmer(language='english')
+stemmer = Stemmer.Stemmer('english')
+stop_words = stopwords.words('english')
 
 def ck(a,stopword):
     if isinstance(a, int) and len(a)<4:
@@ -40,16 +38,8 @@ def all_magic_happens_here(a,tag,st=True):
             if c!='':
                 return_val.append(c)
         return return_val
-
-    stop_words = stopwords.words('english')
-    
     for g in gg:
-        c=snow_stemmer.stem(g)
+        c=stemmer.stemWord(g)
         if (c not in stop_words)and(c!=''):
             return_val.append(c)
     return return_val
-
-def lemm(a,tag):
-    lemmatizer = WordNetLemmatizer()
-    b=[lemmatizer.lemmatize(w) for w in a]
-    return b
