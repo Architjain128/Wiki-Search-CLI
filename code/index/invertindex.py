@@ -23,6 +23,7 @@ def merge_with_global(id,dic):
                 inv_dic[x][i].append(id)
 
 def give_me_final_dump(path):
+    stat2=0
     file_name = str(path)+"/inv/"+str(2)+".txt"
     fp=open(file_name,"w")
     # for x in inv_dic:
@@ -31,8 +32,10 @@ def give_me_final_dump(path):
         for i in inv_dic[x]:
             aa+=((",").join(i))+";"
         print(str(x)+" "+str(aa),file=fp)
+        stat2+=1
         # print(str(x)+" "+str(aa))
     fp.close()
+    return stat2
 
 def doc_id_to_file_name(doc_id):
     file_id=doc_id/Doc_id_Limit

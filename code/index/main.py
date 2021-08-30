@@ -78,7 +78,7 @@ def init():
         aa=time.time()
         parser = xml.sax.make_parser()
         parser.setFeature(xml.sax.handler.feature_namespaces, 0)
-        Handler = Parser_sax(invert_path)
+        Handler = Parser_sax(invert_path,stat_file)
         parser.setContentHandler(Handler)
         parser.parse(open(dump_path,'r'))
         print(time.time()-aa)
