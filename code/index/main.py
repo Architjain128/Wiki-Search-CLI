@@ -70,11 +70,11 @@ def init():
         try:
             os.stat(invert_path)
             os.stat(invert_path+"/titles")
-            os.stat(invert_path+"/index")
+            os.stat(invert_path+"/inv")
         except:
             os.mkdir(invert_path)
             os.mkdir(invert_path+"/titles")
-            os.mkdir(invert_path+"/index")
+            os.mkdir(invert_path+"/inv")
         aa=time.time()
         parser = xml.sax.make_parser()
         parser.setFeature(xml.sax.handler.feature_namespaces, 0)
