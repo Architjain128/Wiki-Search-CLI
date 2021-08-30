@@ -25,15 +25,19 @@ class Parser_sax(xml.sax.ContentHandler):
     def endElement(self, tag):
         global till_page
         if tag == "page":
+            
+            hex_id=hex(till_page)
+            hex_id=hex_id[2:]
+            # hex_id=till_page
             needed_to_be_indexed=parse_baby_parse(self.id,self.title, self.text)
-            deal_with_dump(till_page,needed_to_be_indexed)
+            deal_with_dump(hex_id,needed_to_be_indexed)
             # make inverted index
             if till_page!=0 and till_page%Doc_id_Limit==0:
                 write_title(self.path,self.titi,self.tit_file)
                 self.tit_file+=1
                 self.titi=[]
                 
-            self.titi.append([till_page,self.title.strip()])
+            self.titi.append([hex_id,self.title.strip()])
             till_page+=1
             
             

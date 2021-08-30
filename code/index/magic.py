@@ -35,14 +35,16 @@ def all_magic_happens_here(a,tag,st=True):
     # else:
     gg=re_tok(a)
     return_val=[]
+    return_val1=[]
     if st==False:
         for c in gg:
             if c!='':
-                return_val.append(c)
+                return_val1.append(c)
         return return_val
+    
     for g in gg:
         c=stemmer.stemWord(g)
         # c=snow_stemmer.stem(g) 
-        if (c not in stop_words)and(c!=''):
+        if (c not in stop_words)and(c!='' and len(c)>3):
             return_val.append(c)
     return return_val
