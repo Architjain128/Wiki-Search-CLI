@@ -1,9 +1,12 @@
-import sys
 import os
-import xml.sax
-from parse_sax import *
-from config import *
+import sys
 import time
+import xml.sax
+from config import *
+from parse_sax import *
+from invertindex import *
+
+global global_index_path
 
 def dec_msg(a):
     if colo==True:
@@ -64,11 +67,10 @@ def init():
         inp_msg("> Dump path set to "+dump_path)
         inp_msg("> Invert path set to "+invert_path)
         inp_msg("> Stat file set to "+stat_file)
-        
         aa=time.time()
         parser = xml.sax.make_parser()
         parser.setFeature(xml.sax.handler.feature_namespaces, 0)
-        Handler = Parser_sax()
+        Handler = Parser_sax(invert_path)
         parser.setContentHandler(Handler)
         parser.parse(open(dump_path,'r'))
         print(time.time()-aa)

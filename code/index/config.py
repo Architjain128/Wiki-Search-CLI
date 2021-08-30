@@ -1,10 +1,8 @@
-
 from colorama import init, Fore, Style, Back
+
 colo=True
-
 my_stop_words=["reflist","refbegin","refend","-->","|","Category","Infobox","n","",'']
-
-# color escape sequences
+Doc_id_Limit=100000
 colors = {
     'Blue': '\x1b[0;34m',
     'Green': '\x1b[0;32m',

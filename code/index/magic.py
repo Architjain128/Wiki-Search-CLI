@@ -4,7 +4,9 @@ import nltk
 import time
 from nltk.corpus import stopwords
 import Stemmer
+# from nltk.stem.snowball import SnowballStemmer
 from config import *
+# snow_stemmer = SnowballStemmer(language='english')
 
 stemmer = Stemmer.Stemmer('english')
 stop_words = stopwords.words('english')
@@ -28,10 +30,10 @@ def re_tok_link(a):
 
 
 def all_magic_happens_here(a,tag,st=True):
-    if tag=="extlink":
-        gg=re_tok_link(a)
-    else:
-        gg=re_tok(a)
+    # if tag=="extlink":
+    #     gg=re_tok_link(a)
+    # else:
+    gg=re_tok(a)
     return_val=[]
     if st==False:
         for c in gg:
@@ -40,6 +42,7 @@ def all_magic_happens_here(a,tag,st=True):
         return return_val
     for g in gg:
         c=stemmer.stemWord(g)
+        # c=snow_stemmer.stem(g) 
         if (c not in stop_words)and(c!=''):
             return_val.append(c)
     return return_val

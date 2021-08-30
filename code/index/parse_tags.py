@@ -23,6 +23,9 @@ def parse_baby_parse(pid,title,text):
     refer=parse_references(text)
     return_val.append(refer)
     
+    body=parse_all_text(text)
+    return_val.append(body)
+    
     return return_val
 
 def parse_title_tag(a):
@@ -76,3 +79,6 @@ def parse_extlink(a):
             else:
                 return_val+=all_magic_happens_here(tt,"extlink")
     return return_val
+
+def parse_all_text(a):
+    return all_magic_happens_here(a,"text")
