@@ -67,6 +67,14 @@ def init():
         inp_msg("> Dump path set to "+dump_path)
         inp_msg("> Invert path set to "+invert_path)
         inp_msg("> Stat file set to "+stat_file)
+        try:
+            os.stat(invert_path)
+            os.stat(invert_path+"/titles")
+            os.stat(invert_path+"/index")
+        except:
+            os.mkdir(invert_path)
+            os.mkdir(invert_path+"/titles")
+            os.mkdir(invert_path+"/index")
         aa=time.time()
         parser = xml.sax.make_parser()
         parser.setFeature(xml.sax.handler.feature_namespaces, 0)

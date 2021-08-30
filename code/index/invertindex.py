@@ -8,7 +8,6 @@ def deal_with_dump(id,dump):
         if i != 0:
             tok=dump[i]
             for x in tok:
-                x=x.strip()
                 if len(x) > 3:
                     if x not in dic:
                         dic[x]=[0,0,0,0,0,0]
@@ -24,8 +23,9 @@ def merge_with_global(id,dic):
                 inv_dic[x][i].append(id)
 
 def give_me_final_dump(path):
-    file_name = str(path)+"/inv/"+str(1)+".txt"
+    file_name = str(path)+"/inv/"+str(11)+".txt"
     fp=open(file_name,"w")
+    # for x in sorted(inv_dic.keys()):
     for x in inv_dic:
         print(str(x)+" "+str(inv_dic[x]),file=fp)
     fp.close()
