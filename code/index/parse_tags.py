@@ -30,7 +30,7 @@ def parse_baby_parse(pid,title,text):
     return return_val
 
 def parse_title_tag(a):
-    a=all_magic_happens_here(a,"title",False)
+    a=all_magic_happens_here(a,"title")
     return a
 
 def parse_infobox(a):

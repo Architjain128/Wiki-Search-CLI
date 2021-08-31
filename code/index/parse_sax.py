@@ -33,6 +33,7 @@ class Parser_sax(xml.sax.ContentHandler):
             hex_id=hex_id[2:]
             # hex_id=till_page
             needed_to_be_indexed=parse_baby_parse(self.id,self.title, self.text)
+            # print(needed_to_be_indexed)
             stat1 += needed_to_be_indexed[-1]
             needed_to_be_indexed.pop()
             deal_with_dump(hex_id,needed_to_be_indexed)

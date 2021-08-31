@@ -2,6 +2,7 @@ from config import *
 
 inv_dic={}
 #  title info catty extlinlk refer body
+
 def deal_with_dump(id,dump):
     dic={}
     for i in range(len(dump)):

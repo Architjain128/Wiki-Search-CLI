@@ -5,23 +5,22 @@ import time
 from nltk.corpus import stopwords
 import Stemmer
 
-
 stemmer = Stemmer.Stemmer('english')
 stop_words = stopwords.words('english')
 
 def re_tok(a):
     tok_low = re.split(r'[^A-Za-z0-9]+', a)
     return tok_low
+
 def re_tok2(a):
     tok_low = re.split(r'[^A-Za-z0-9:]+', a)
     return tok_low
 
-def all_magic_happens_here(a,st=True):
-    if st==True:
+def all_magic_happens_here(a,t=True,st=True):
+    if t==True:
         gg=re_tok(a)
     else: 
         gg=re_tok2(a)
-    
     return_val=[]
     return_val1=[]
     if st==False:
@@ -38,32 +37,47 @@ def all_magic_happens_here(a,st=True):
 def blank_search(path,query):
     return_list=[]
     gg=all_magic_happens_here(query)
-    return gg
+    return [[],[],[],[],[],gg]
 
 def field_search(path,query):
-    return_list=[]
     title=[]
     info=[]
     catty=[]
     refer=[]
     extlink=[]
     other=[]
-    
     gg=all_magic_happens_here(query,False)
+    fl="o"
     for g in gg:
-        if len(g)>2 and g[1]==':':
-            if(g[0]=='t'):
+        if len(g)>2:
+            if( g[1]==':' and g[0]=='t'):
                 title.append(g[2:])
-            elif(g[0]=='i'):
+                fl="t"
+            elif( g[1]==':' and g[0]=='i'):
                 info.append(g[2:])
-            elif(g[0]=='c'):
+                fl="i"
+            elif( g[1]==':' and g[0]=='c'):
                 catty.append(g[2:])
-            elif(g[0]=='r'):
+                fl="c"
+            elif( g[1]==':' and g[0]=='r'):
                 refer.append(g[2:])
-            elif(g[0]=='e'):
+                fl="r"
+            elif( g[1]==':' and g[0]=='e'):
                 extlink.append(g[2:])
+                fl="e"
             else:
-                other.append(g)
+                if fl=="t":
+                    title.append(g)
+                elif fl=="i":
+                    info.append(g)
+                elif fl=="c":
+                    catty.append(g)
+                elif fl=="r":
+                    refer.append(g)
+                elif fl=="e":
+                    extlink.append(g)
+                else:
+                    other.append(g)
     gg=[title,info,catty,refer,extlink,other]
     return gg
 
@@ -71,7 +85,7 @@ def find_query(path,query):
     return_list=[]
     a=query.split(":")
     if(len(a)>1):
-        return_list+=blank_search(path,query)
+        return_list=field_search(path,query)
     else:
-        return_list+=field_search(path,query)
+        return_list=blank_search(path,query)
     return return_list
