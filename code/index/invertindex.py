@@ -33,7 +33,6 @@ def give_me_final_dump(path):
             aa+=((",").join(i))+";"
         print(str(x)+" "+str(aa),file=fp)
         stat2+=1
-        # print(str(x)+" "+str(aa))
     fp.close()
     return stat2
 

@@ -4,9 +4,7 @@ import nltk
 import time
 from nltk.corpus import stopwords
 import Stemmer
-# from nltk.stem.snowball import SnowballStemmer
 from config import *
-# snow_stemmer = SnowballStemmer(language='english')
 
 stemmer = Stemmer.Stemmer('english')
 stop_words = stopwords.words('english')
