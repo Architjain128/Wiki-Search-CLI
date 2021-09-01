@@ -25,10 +25,10 @@ def merge_with_global(id,dic):
 
 def give_me_final_dump(path):
     stat2=0
-    file_name = str(path)+"/inv/"+str(2)+".txt"
+    file_name = str(path)+"/inv/"+str(30)+".txt"
     fp=open(file_name,"w")
-    # for x in inv_dic:
-    for x in sorted(inv_dic.keys()):
+    for x in inv_dic:
+    # for x in sorted(inv_dic.keys()):
         aa=""
         for i in inv_dic[x]:
             aa+=((",").join(i))+";"
