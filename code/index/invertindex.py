@@ -25,7 +25,7 @@ def merge_with_global(id,dic):
 
 def give_me_final_dump(path):
     stat2=0
-    file_name = str(path)+"/inv/"+str(30)+".txt"
+    file_name = str(path)+"/inv/"+str(0)+".txt"
     fp=open(file_name,"w")
     for x in inv_dic:
     # for x in sorted(inv_dic.keys()):

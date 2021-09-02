@@ -1,8 +1,12 @@
-from colorama import init, Fore, Style, Back
+# from colorama import init, Fore, Style, Back
 
-colo=True
+colo=False
+msg=True
 my_stop_words=["reflist","refbegin","refend","-->","|","Category","Infobox","n","",'']
-Doc_id_Limit=100000
+Doc_id_Limit=10000000
+
+geek_mode = True
+
 colors = {
     'Blue': '\x1b[0;34m',
     'Green': '\x1b[0;32m',
