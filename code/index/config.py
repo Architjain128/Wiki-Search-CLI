@@ -1,6 +1,6 @@
 # from colorama import init, Fore, Style, Back
 
-colo=True
+colo=False
 my_stop_words=["reflist","refbegin","refend","-->","|","Category","Infobox","n","",'']
 Doc_id_Limit=100000000
 colors = {

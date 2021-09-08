@@ -103,7 +103,7 @@ def create_list(gg):
     return [title,info,catty,refer,extlink,other]
 
 def read_files(path):
-    # fp1=open(str(path+"/titles/0.txt"),'r')
+    fp1=open(str(path+"/titles/0.txt"),'r')
     fp2=open(str(path+"/inv/0.txt"),'r')
     global dic_title
     global inv_dic
