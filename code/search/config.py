@@ -1,5 +1,5 @@
 from colorama import init, Fore, Style, Back
-
+TEST=True
 colo=True
 msg=True
 my_stop_words=["reflist","refbegin","refend","-->","|","Category","Infobox","n","",'']

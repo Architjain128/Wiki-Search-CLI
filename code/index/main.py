@@ -7,8 +7,10 @@ from config import *
 from parse_sax import *
 from invertindex import *
 from merge import *
+from staty import *
 
 global global_index_path
+stat1=0
 
 def dec_msg(a):
     if colo==True:
@@ -55,8 +57,8 @@ def byexit(a):
     def_msg("="*50+"\n")
 
 
-
 def init():
+    global stat1
     os.system("clear")
     def_msg("\n"+"="*50)
     dec_msg("Indexer started")
@@ -100,16 +102,18 @@ def init():
         ap=os.listdir(path)
         for a in ap:
             lsit.append(path+a)
-
         a=mergeSortedFiles(path,lsit,path2)
-        # print(a)
+        
         print(time.time()-aa)
         mydir = invert_path+"/inv"
         shutil.rmtree(mydir)
-        # for f in os.listdir(dir):
-        #     os.remove(dir+f)
+        stat1= get_size_format(get_directory_size(invert_path))
+        stat2=get_num_files(invert_path)
+        stat3=a
+        fs=open(stat_file,"w")
+        print(stat1,stat2,stat3,file=fs,sep="\n")
+        fs.close()
         byexit(1)
-
 
 if __name__ == "__main__":
     init()

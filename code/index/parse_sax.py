@@ -62,9 +62,9 @@ class Parser_sax(xml.sax.ContentHandler):
             write_title(self.path,self.titi,self.tit_file)
             stat2=give_me_final_dump(self.path,self.okok)
             self.titi=[]
-            fs=open(self.file,"w")
-            print(stat1,stat2,file=fs,sep="\n")
-            fs.close()
+            # fs=open(self.file,"w")
+            # print(stat1,stat2,file=fs,sep="\n")
+            # fs.close()
             fp=open(self.path+"/titles/log.txt",'w')
             for x in titit:
                 print(x,file=fp)
