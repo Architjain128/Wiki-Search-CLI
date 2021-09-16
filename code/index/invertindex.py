@@ -12,7 +12,7 @@ def deal_with_dump(id,dump):
                 # if len(x) > 3:
                 if x not in dic:
                     dic[x]=[0,0,0,0,0,0]
-                dic[x][i-1]=1
+                dic[x][i-1]+=1
     merge_with_global(id,dic)
 
 def merge_with_global(id,dic):
@@ -21,20 +21,20 @@ def merge_with_global(id,dic):
             inv_dic[x]=[[],[],[],[],[],[]]
         for i in range(len(dic[x])):
             if dic[x][i] > 0:
-                inv_dic[x][i].append(id)
+                inv_dic[x][i].append(str(id)+"-"+str(dic[x][i]))
 
-def give_me_final_dump(path):
+def give_me_final_dump(path,ff):
     stat2=0
-    file_name = str(path)+"/inv/"+str(0)+".txt"
+    file_name = str(path)+"/inv/"+str(ff)+".txt"
     fp=open(file_name,"w")
-    for x in inv_dic:
-    # for x in sorted(inv_dic.keys()):
+    for x in sorted(inv_dic.keys()):
         aa=""
         for i in inv_dic[x]:
             aa+=((",").join(i))+";"
         print(str(x)+" "+str(aa),file=fp)
         stat2+=1
     fp.close()
+    inv_dic.clear()
     return stat2
 
 def doc_id_to_file_name(doc_id):
