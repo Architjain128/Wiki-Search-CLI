@@ -84,7 +84,7 @@ def field_search(path,query):
                 g[0]=g[0][2:]
             elif( g[0][1]==':' and g[0][0]=='r'):
                 g[0]=g[0][2:]
-            elif( g[0][1]==':' and g[0][0]=='e'):
+            elif( g[0][1]==':' and g[0][0]=='l'):
                 g[0]=g[0][2:]
             elif( g[0][1]==':' and g[0][0]=='b'):
                 g[0]=g[0][2:]
@@ -105,9 +105,9 @@ def field_search(path,query):
             elif( g[1]==':' and g[0]=='r'):
                 refer.append(g[2:])
                 fl="r"
-            elif( g[1]==':' and g[0]=='e'):
+            elif( g[1]==':' and g[0]=='l'):
                 extlink.append(g[2:])
-                fl="e"
+                fl="l"
             elif( g[1]==':' and g[0]=='b'):
                 other.append(g[2:])
                 fl="o"
@@ -120,7 +120,7 @@ def field_search(path,query):
                     catty.append(g)
                 elif fl=="r":
                     refer.append(g)
-                elif fl=="e":
+                elif fl=="l":
                     extlink.append(g)
                 else:
                     other.append(g)

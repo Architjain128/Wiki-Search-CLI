@@ -43,6 +43,6 @@ def all_magic_happens_here(a,tag,st=True):
     for g in gg:
         c=stemmer.stemWord(g)
         # c=snow_stemmer.stem(g) 
-        if (c not in stop_words)and(c!='' and len(c)>3):
+        if (c not in stop_words)and(c!=''):
             return_val.append(c)
     return return_val,vv
