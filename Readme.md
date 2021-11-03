@@ -1,5 +1,7 @@
 # How to run
+Clone this repo and run following commands  
 ```
+    > cd code
     > pip3 install -r requirement.txt
 ```
 ```
@@ -15,4 +17,7 @@
 ```
     > bash search.sh <invert_folder_path> <query_string>
 ```
-
+## Report
+```
+    Location :  ./code/final_report.txt
+```
