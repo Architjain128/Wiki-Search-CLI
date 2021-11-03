@@ -1,58 +1,48 @@
+import nltk.corpus
 import re
 import nltk
 import time
-try:
-    from nltk.corpus import stopwords
-finally:
-    nltk.download('stopwords')
-    from nltk.corpus import stopwords
-try:
-    from nltk.stem import WordNetLemmatizer
-finally:
-    nltk.download('wordnet')
-    from nltk.stem import WordNetLemmatizer
-from nltk.stem.snowball import SnowballStemmer
-from nltk.stem.porter import PorterStemmer
+import Stemmer
+from config import *
 
-# pageCount=int(52622)
-
-def all_magic_happens_here(a,tag,fl=2):
-    list_of_all_lowecase_words = re_tok_lower(a,tag)
-    set_non_stop_words=rem_stop_words(list_of_all_lowecase_words)
-    if fl==0:
-        lemmy_words=lemm(set_non_stop_words,tag)
-    if fl ==1:
-        stemmy_words=porter_stemm(set_non_stop_words,tag)
-    if fl ==2:
-        stemmy_words=snow_stemm(set_non_stop_words,tag)
-    return list_of_all_lowecase_words
+stemmer = Stemmer.Stemmer('english')
+stop_words=['myself', 'ours', 'ourselves', "you're", "you've", "you'll", "you'd", 'your', 'yours', 'yourself', 'yourselves', 'himself', "she's", 'hers', 'herself', "it's", 'itself', 'they', 'them', 'their', 'theirs', 'themselves', 'what', 'which', 'whom', 'this', 'that', "that'll", 'these', 'those', 'were', 'been', 'being', 'have', 'having', 'does', 'doing', 'because', 'until', 'while', 'with', 'about', 'against', 'between', 'into', 'through', 'during', 'before', 'after', 'above', 'below', 'from', 'down', 'over', 'under', 'again', 'further', 'then', 'once', 'here', 'there', 'when', 'where', 'both', 'each', 'more', 'most', 'other', 'some', 'such', 'only', 'same', 'than', 'very', 'will', 'just', "don't", 'should', "should've", 'aren', "aren't", 'couldn', "couldn't", 'didn', "didn't", 'doesn', "doesn't", 'hadn', "hadn't", 'hasn', "hasn't", 'haven', "haven't", "isn't", 'mightn', "mightn't", 'mustn', "mustn't", 'needn', "needn't", 'shan', "shan't", 'shouldn', "shouldn't", 'wasn', "wasn't", 'weren', "weren't", "won't", 'wouldn', "wouldn't"]
 
 
-def re_tok_lower(a,tag):
-    tok_low = re.split(r'[^A-Za-z0-9]+', a.strip().lower())
+def re_tok(a):
+    tok_low = re.split(r'[^A-Za-z0-9]+', a)
+    return tok_low,len(tok_low)
+
+def re_tok_link(a):
+    tok_low = re.split(r'[^A-Za-z0-9-/-:-.]+', a)
     return tok_low
 
-def rem_stop_words(a):
-    stop_words = set(stopwords.words('english'))
-    set1=set(a)
-    set2=set(stop_words)
-    set3=set({'',""," "})
-    return set1-set2-set3
+def stemm(a):
+    without_stop=[]
+    for word in a:
+        word = stemmer.stemWord(word) 
+        if word in stop_words:
+            continue
+        without_stop.append(word)
+    return without_stop
 
-def lemm(a,tag):
-    lemmatizer = WordNetLemmatizer()
-    b=[lemmatizer.lemmatize(w) for w in a]
-    return b
-
-def snow_stemm(a,tag):
-    snow_stemmer = SnowballStemmer(language='english')
-    b=[snow_stemmer.stem(w) for w in a]
-    return b
-
-def porter_stemm(a,tag):
-    snow_stemmer = PorterStemmer()
-    b=[snow_stemmer.stem(w) for w in a]
-    return b
-
-def pystemm(a,tag):
-    pass
+def all_magic_happens_here(a,tag,st=True):
+    # if tag=="extlink":
+    #     gg=re_tok_link(a)
+    # else:
+    gg,vv=re_tok(a)
+    gg=list(set(gg))
+    return_val=[]
+    return_val1=[]
+    if st==False:
+        for c in gg:
+            if c!='':
+                return_val1.append(c)
+        return return_val,vv
+    
+    for g in gg:
+        c=stemmer.stemWord(g)
+        # c=snow_stemmer.stem(g) 
+        if (c not in stop_words)and(c!='' and len(c)>3):
+            return_val.append(c)
+    return return_val,vv
